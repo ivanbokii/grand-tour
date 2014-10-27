@@ -1,0 +1,24 @@
+{
+  "name": "grand-tour",
+  "version": "0.0.0",
+  "description": "grand tour for charabanc",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/"
+  },
+  "keywords": [
+    "charabanc",
+    "graph",
+    "path"
+  ],
+  "author": "ivanbokii, lazywithclass",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^2.0.1"
+  },
+  "dependencies": {
+    "ast-traverse": "^0.1.1",
+    "esprima": "^1.2.2"
+  }
+}
