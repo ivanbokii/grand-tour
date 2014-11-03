@@ -9,9 +9,9 @@ var someObject = {
 };
 
 // //in a property of an object
-// someObject.anotherProp = function() {
-//   charabanc.request('icedcoffee', function() {});
-// }
+someObject.anotherProp = function() {
+  charabanc.request('icedcoffee', function() {});
+}
 
 // //in a callback as a parameter to a function call
 // someObject.func('arg1', function() {

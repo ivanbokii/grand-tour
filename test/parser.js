@@ -6,12 +6,12 @@ describe('charabanc-ast-parser', function() {
     var code = require('fs').readFileSync('./test/fixtures/parser-fixtures.js', 'utf8');
 
     var output = [{
-      type: 'request',
-      route: 'mochaccino',
-      context: {
-        type: 'global'
-      }
-    }, {
+       type: 'request',
+       route: 'mochaccino',
+       context: {
+         type: 'global'
+       }
+     }, {
       type: 'request',
       route: 'latte',
       context: {
@@ -19,15 +19,15 @@ describe('charabanc-ast-parser', function() {
         name: 'prop',
         object: 'someObject'
       }
+    }, {
+      type: 'request',
+      route: 'icedcoffee',
+      context: {
+        type: 'function',
+        name: 'anotherProp',
+        object: 'someObject'
+      }
     }//, {
-    //  route: 'icedcoffee',
-    //   type: 'request',
-    //   context: {
-    //     type: 'function',
-    //     name: 'anotherProp',
-    //     object: 'someObject'
-    //   }
-    // }, {
     //   route: 'cappuccino',
     //   type: 'request',
     //   context: {
