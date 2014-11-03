@@ -9,7 +9,9 @@ describe('charabanc-ast-parser', function() {
       type: 'request',
       route: 'mochaccino',
       context: {
-        type: 'global'
+        type: 'function-call',
+        name: 'request',
+        object: 'charabanc'
       }
     }, {
       type: 'request',
@@ -35,54 +37,46 @@ describe('charabanc-ast-parser', function() {
         name: 'func',
         object: 'someObject'
       }
-    },
-                  // {
-                  //   route: 'espressino',
-                  //   type: 'request',
-                  //   context: {
-                  //     type: 'function',
-                  //     name: 'func',
-                  //     object: 'someObject'
-                  //   }
-                  // }, {
-                  //   route: 'espressino',
-                  //   type: 'request',
-                  //   context: {
-                  //     type: 'function',
-                  //     name: 'func',
-                  //     object: 'someObject'
-                  //   }
-                  // }, {
-                  //   route: 'redeye',
-                  //   type: 'request',
-                  //   context: {
-                  //     type: 'function',
-                  //     name: 'func',
-                  //     object: 'someObject'
-                  //   }
-                  // }, {
-                  //   route: 'irishcoffee',
-                  //   type: 'request',
-                  //   context: {
-                  //     type: 'function',
-                  //     name: 'func',
-                  //     object: 'someObject'
-                  //   }
-                  // }, {
-                  //   route: 'pocillo',
-                  //   type: 'register',
-                  //   context: {
-                  //     type: 'global'
-                  //   }
-                  // }, {
-                  //   route: 'macchiato',
-                  //   type: 'request',
-                  //   context: {
-                  //     type: 'function',
-                  //     name: 'register',
-                  //     object: 'charabanc'
-                  //   }}
-                 ];
+    }, {
+      type: 'request',
+      route: 'espressino',
+      context: {
+        type: 'function-call',
+        name: 'func',
+        object: 'someObject'
+      }
+    }, {
+      type: 'request',
+      route: 'redeye',
+      context: {
+        type: 'function-call',
+        name: 'func',
+        object: 'someObject'
+      }
+    }, {
+      type: 'request',
+      route: 'irishcoffee',
+      context: {
+        type: 'function-call',
+        name: 'func',
+        object: 'someObject'
+      }
+    }, {
+      type: 'register',
+      route: 'pocillo',
+      context: {
+        type: 'function-call',
+        name: 'register',
+        object: 'charabanc'
+      }
+    }, {
+      type: 'request',
+      route: 'macchiato',
+      context: {
+        type: 'function-call',
+        name: 'register',
+        object: 'charabanc'
+      }}];
 
     expect(parse(code)).to.deep.equal(output);
   });

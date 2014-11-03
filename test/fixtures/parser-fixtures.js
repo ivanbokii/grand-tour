@@ -19,20 +19,20 @@ someObject.func('arg1', function() {
 });
 
 // //in nested callbacks
-// someObject.func('something', function() {
-//   someObject.anotherFunc('another', function() {
-//     charabanc.request('espressino', function() {});
-//   });
-// });
+someObject.func('something', function() {
+  someObject.anotherFunc('another', function() {
+    charabanc.request('espressino', function() {});
+  });
+});
 
-// //nested requests in the same context
-// someObject.func('arg1', function() {
-//   charabanc.request('redeye', function() {
-//     charabanc.request('irishcoffee', function() {});
-//   });
-// });
+//nested requests in the same context
+someObject.func('arg1', function() {
+  charabanc.request('redeye', function() {
+    charabanc.request('irishcoffee', function() {});
+  });
+});
 
-// //in a charabanc register's callback
-// charabanc.register('pocillo', function() {
-//   charabanc.request('macchiato', function() {});
-// });
+//in a charabanc register's callback
+charabanc.register('pocillo', function() {
+  charabanc.request('macchiato', function() {});
+});
