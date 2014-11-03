@@ -1,1 +1,0 @@
-charabanc.request('mochaccino', function() {});
