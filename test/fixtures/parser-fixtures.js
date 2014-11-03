@@ -14,9 +14,9 @@ someObject.anotherProp = function() {
 }
 
 // //in a callback as a parameter to a function call
-// someObject.func('arg1', function() {
-//   charabanc.request('cappuccino', function() {});
-// });
+someObject.func('arg1', function() {
+  charabanc.request('cappuccino', function() {});
+});
 
 // //in nested callbacks
 // someObject.func('something', function() {
