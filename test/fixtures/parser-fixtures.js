@@ -1,12 +1,12 @@
 //root level
 charabanc.request('mochaccino', function() {});
 
-// //in a property of an object
-// var someObject = {
-//   prop: function() {
-//     charabanc.request('latte', function() {});
-//   }
-// };
+//in a property of an object
+var someObject = {
+  prop: function() {
+    charabanc.request('latte', function() {});
+  }
+};
 
 // //in a property of an object
 // someObject.anotherProp = function() {

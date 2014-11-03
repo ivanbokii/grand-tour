@@ -11,16 +11,16 @@ describe('charabanc-ast-parser', function() {
       context: {
         type: 'global'
       }
-    }, //{
-    //   route: 'latte',
-    //   type: 'request',
-    //   context: {
-    //     type: 'function',
-    //     name: 'prop',
-    //     object: 'someObject'
-    //   }
-    // }, {
-    //   route: 'icedcoffee',
+    }, {
+      type: 'request',
+      route: 'latte',
+      context: {
+        type: 'function',
+        name: 'prop',
+        object: 'someObject'
+      }
+    }//, {
+    //  route: 'icedcoffee',
     //   type: 'request',
     //   context: {
     //     type: 'function',
