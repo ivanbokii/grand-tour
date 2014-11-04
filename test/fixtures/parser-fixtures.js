@@ -36,3 +36,11 @@ someObject.func('arg1', function() {
 charabanc.register('pocillo', function() {
   charabanc.request('macchiato', function() {});
 });
+
+function test() {
+  charabanc.register('eiskaffee', function() {});
+}
+
+var superTest = function() {
+  charabanc.request('doppio', function() {});
+}

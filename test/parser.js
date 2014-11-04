@@ -76,8 +76,28 @@ describe('charabanc-ast-parser', function() {
         type: 'function-call',
         name: 'register',
         object: 'charabanc'
-      }}];
+      }
+    }, {
+      type: 'register',
+      route: 'eiskaffee',
+      context: {
+        type: 'function',
+        name: 'test'
+      }
+    }, {
+      type: 'request',
+      route: 'doppio',
+      context: {
+        type: 'function',
+        name: 'superTest'
+      }
+    }];
 
     expect(parse(code)).to.deep.equal(output);
+  });
+
+  it('should return empty array if nothing found', function() {
+    var code = "function thefunction() { console.log('Final report of the commercial starship Nostromo'); }";
+    expect(parse(code)).to.deep.equal([]);
   });
 });
