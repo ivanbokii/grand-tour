@@ -13,7 +13,7 @@ if (!parsedArgs.route || !parsedArgs.output) {
 
 extractNodes(parsedArgs.route, function(err, results) {
   if (err) {
-    console.error('Something went wrong: '.red, err);
+    console.log('Something went wrong: '.red, err);
     return;
   }
 
