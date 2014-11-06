@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <script type="text/javascript" src="./thirdparty/lodash.js"></script>
+    <script type="text/javascript" src="./thirdparty/vis.min.js"></script>
+    <script type="text/javascript" src="./lib/graph-builder.js"></script>
+    <script type="text/javascript" src="./lib/visual-graph-exporter.js"></script>
+    <link rel="stylesheet" href="./styles/vis.min.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+  
+  <script type="text/javascript">
+   var nodes = {
+     "errors": [],
+     "results": [
+       {
+         "context": {
+           "type": "function",
+           "name": "init",
+           "object": "main"
+         },
+         "nodes": [
+           {
+             "type": "request",
+             "route": "users-info"
+           },
+           {
+             "type": "request",
+             "route": "dump-info"
+           }
+         ],
+         "file": "test/fixtures/project-fixture/main.js"
+       },
+       {
+         "context": {
+           "type": "function",
+           "name": "init",
+           "object": "utils"
+         },
+         "nodes": [
+           {
+             "type": "register",
+             "route": "dump-info"
+           }
+         ],
+         "file": "test/fixtures/project-fixture/utils.js"
+       },
+       {
+         "context": {
+           "type": "function",
+           "name": "init",
+           "object": "accounts"
+         },
+         "nodes": [
+           {
+             "type": "register",
+             "route": "get-users-account-info"
+           }
+         ],
+         "file": "test/fixtures/project-fixture/lib/accounts.js"
+       },
+       {
+         "context": {
+           "type": "function",
+           "name": "init",
+           "object": "users"
+         },
+         "nodes": [
+           {
+             "type": "register",
+             "route": "users-info"
+           },
+           {
+             "type": "request",
+             "route": "get-users-account-info"
+           }
+         ],
+         "file": "test/fixtures/project-fixture/lib/users.js"
+       }
+     ]
+   };
+   
+   var graph = graphBuilder.build(nodes.results);
+   var visual = visualExporter.buildVisual(graph);
+   var options = {
+     height: '100%',
+     width: '100%',
+     physics: {
+       hierarchicalRepulsion: {
+         springLength: 500,
+         nodeDistance: 500
+       }
+     },
+     hierarchicalLayout: {
+       nodeSpacing: 300,
+       levelSeparation: 300,
+       direction: "UD",
+       //layout: 'direction',
+       enabled: true
+     }, 
+     nodes: {
+       shape: 'box',
+       fontSize: 10
+     },
+     edges: {
+       arrowScaleFactor: 0.8,
+       fontSize: 10,
+       style: 'arrow',
+       color: 'red'
+     }
+   };
+   
+
+   var container = document.getElementById('container');
+   var network = new vis.Network(container, visual, options);
+  </script>
+</html>
