@@ -29,7 +29,7 @@ var graphBuilder = {
         })
         .each(function(node) {
           node.subscribers = [];
-          node.subscribers.push(routingTable['register'][node.route]);
+          node.subscribers.push(routingTable.register[node.route]);
           node.subscribers = _.flatten(node.subscribers);
         });
     });

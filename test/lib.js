@@ -2,9 +2,8 @@ var _ = require('lodash');
 var expect = require('chai').expect;
 var extractNodes = require('../lib');
 
-
 describe('extract-nodes', function() {
-  it.only('should extract nodes', function(done) {
+  it('should extract nodes', function(done) {
     var mainResult ={
       "context": {
         "type": "function",
@@ -140,7 +139,7 @@ describe('extract-nodes', function() {
       
       expect(results.errors.length).to.equal(2);
       _.each(results.errors, function(entry) {
-        expect(entry.error.description).to.equal(expectedError);
+        expect(entry.error).to.include(expectedError);
       });
       
       
