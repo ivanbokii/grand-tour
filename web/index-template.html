@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script type="text/javascript" src="./thirdparty/lodash.js"></script>
+    <script type="text/javascript" src="./thirdparty/vis.min.js"></script>
+    <script type="text/javascript" src="./lib/graph-builder.js"></script>
+    <script type="text/javascript" src="./lib/visual-graph-exporter.js"></script>
+    <link rel="stylesheet" href="./styles/vis.min.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+  
+  <script type="text/javascript">
+   var nodes = ##placeholder##;
+   
+   var graph = graphBuilder.build(nodes.results);
+   var visual = visualExporter.buildVisual(graph);
+   var options = {
+     height: '100%',
+     width: '100%',
+     physics: {
+       hierarchicalRepulsion: {
+         springLength: 500,
+         nodeDistance: 500
+       }
+     },
+     hierarchicalLayout: {
+       nodeSpacing: 300,
+       levelSeparation: 300,
+       direction: "UD",
+       enabled: true
+     }, 
+     nodes: {
+       shape: 'box',
+       fontSize: 10
+     },
+     edges: {
+       arrowScaleFactor: 0.8,
+       fontSize: 10,
+       style: 'arrow',
+       color: 'red'
+     }
+   };
+   
+
+   var container = document.getElementById('container');
+   var network = new vis.Network(container, visual, options);
+  </script>
+</html>

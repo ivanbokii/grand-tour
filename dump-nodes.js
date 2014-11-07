@@ -6,8 +6,8 @@ var colors = require('colors');
 
 var parsedArgs = parse(process.argv.slice(2));
 
-if (!parsedArgs.route || !parsedArgs.output) {
-  console.log('Usage'.yellow, ': dump-nodes --route ', '[route to the project]'.green, ' --output ', '[path to the output file]'.green);
+if (!parsedArgs.route) {
+  console.log('Usage'.yellow, ': dump-nodes --route ', '[route to the project]'.green);
   return;
 }
 
@@ -18,6 +18,13 @@ extractNodes(parsedArgs.route, function(err, results) {
   }
 
   var content = JSON.stringify(results, '', 2);
-  fs.writeFileSync(parsedArgs.output, content);
+  createHtml(content);
   console.log('Done');
 });
+
+function createHtml(content) {
+  var html = fs.readFileSync('./web/index-template.html', 'utf8');
+  var result = html.replace('##placeholder##', content);
+
+  fs.writeFileSync('./web/index.html', result);
+}
